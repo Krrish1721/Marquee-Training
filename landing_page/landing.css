@@ -1,0 +1,145 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#fff;
+    overflow-x:hidden;
+    position:relative;
+}
+
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 80px;
+    background:#fff;
+}
+
+.logo{
+    font-weight:600;
+    color:#333;
+}
+
+.btn{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#0b5ed7;
+}
+
+.hero{
+    height:550px;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    center/cover no-repeat;
+    position:relative;
+}
+
+.overlay{
+    height:100%;
+    width:100%;
+    background:rgba(33,55,90,0.45);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.overlay h1{
+    color:white;
+    font-size:52px;
+    max-width:800px;
+    margin-bottom:35px;
+    line-height:1.2;
+}
+
+.signup-form{
+    display:flex;
+    width:600px;
+}
+
+.signup-form input{
+    flex:1;
+    padding:18px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+.signup-form button{
+    padding:18px 30px;
+    border:none;
+    background:#0d6efd;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.signup-form button:hover{
+    background:#0b5ed7;
+}
+
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:120px;
+    padding:90px 50px;
+    text-align:center;
+}
+
+.feature-box{
+    max-width:280px;
+}
+
+.feature-box i{
+    font-size:60px;
+    color:#0d6efd;
+    margin-bottom:25px;
+}
+
+.feature-box h3{
+    font-size:28px;
+    margin-bottom:15px;
+    color:#333;
+}
+
+.feature-box p{
+    color:#666;
+    line-height:1.7;
+    font-size:16px;
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        padding:15px 25px;
+    }
+
+    .overlay h1{
+        font-size:32px;
+        padding:0 20px;
+    }
+
+    .signup-form{
+        width:90%;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .features{
+        flex-direction:column;
+        gap:50px;
+    }
+}
