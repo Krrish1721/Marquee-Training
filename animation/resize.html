@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Boxes</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#f2f2f2;
+}
+
+.container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.box{
+    width:180px;
+    height:100px;
+    transition:all 1.5s ease-in-out;
+}
+
+.box1{
+    background:red;
+}
+
+.box1:hover{
+    background:blue;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    transform:rotate(360deg);
+}
+
+.box2{
+    background:green;
+}
+
+.box2:hover{
+    background:orange;
+    transform:scale(1.3) rotate(360deg);
+    border-radius:50%;
+}
+
+.box3{
+    background:purple;
+}
+
+.box3:hover{
+    background:yellow;
+    transform:translateY(-50px);
+    border-radius:20px;
+}
+
+.box4{
+    background:black;
+}
+
+.box4:hover{
+    background:pink;
+    transform:skew(20deg);
+    border-radius:30px;
+}
+
+@media (max-width:650px){
+
+    body{
+        background:#d8f3dc;
+    }
+
+    .container{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+        padding:20px;
+    }
+
+    .box{
+        width:140px;
+        height:90px;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+</div>
+
+</body>
+</html>

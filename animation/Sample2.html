@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  :root{
+    --red: red;
+    --blue: blue;
+    --green:green;
+    --yellow:yellow;
+  }
+  /* body{
+    background-color: #d01414c0;
+  } */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3,100px);
+  grid-template-rows: repeat(3,100px);
+  row-gap: 2px;
+  column-gap: 2px;
+  /* background-color: dodgerblue;  */
+  padding: 10px;
+  
+}
+
+#bb{
+grid-column-start: 1;
+grid-column-end: 4;
+grid-row-start: 1;
+grid-row-end: 3;
+}
+/* .container div {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  background-color: red;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+} */
+
+.box{
+    background-color: green;
+    border-radius: 5px;
+    /* width: 250px;
+  height: 250px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transition: all .3s linear; */
+  animation-name: colorchange;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes colorchange{
+    0%{background-color:red;} 
+    25%{background-color: yellow;} 
+    50%{background-color: orange;} 
+    75%{background-color: green;} 
+    100%{background-color: goldenrod;}
+}
+.box:hover{
+    
+  background-color: wheat;
+  color: blue;
+  transform: rotate(90deg);
+  border-radius: 50%; 
+}
+
+.contain{
+  display: grid;
+  grid-template-columns: repeat(4,2fr);
+  grid-template-rows: repeat(3,100px);
+  padding: 10px;
+  border: 2px solid black;
+  row-gap: 5px;
+  column-gap: 5px;
+}
+
+#bi1{
+  
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#bi2{
+  
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+#bi4{
+  
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+#bi6{
+  
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#bi7{
+  
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.box-container{
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4,40px);
+  grid-template-rows: repeat(3,40px);
+  gap: 5px;
+}
+
+.box2{
+  background-color: green;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+#bibi1{
+  background-color: red;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#bibi2{
+  background-color: yellow;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.box-contain{
+  padding: 10px;
+  border: 4px solid black;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3,450px);
+  grid-template-rows: repeat(3,100px);
+  
+}
+.box3{
+   border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#bibib1{
+  background-color: rgb(236, 135, 135);
+   border: 4px solid red;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+#bibib2{
+  background-color: rgb(186, 133, 235);
+   border: 4px solid blueviolet;
+   grid-column-start: 0;
+   grid-column-start: 1;
+}
+#bibib3{
+  background-color: rgb(152, 243, 152);
+   border: 4px solid green;
+   grid-column-start: 0;
+   grid-column-start: 3;
+  
+}
+#bibib4{
+  background-color: rgb(240, 240, 170);
+   border: 4px solid yellow;
+  
+}
+
+button{
+background-color:white;
+color:blue;
+border:2px solid black;
+font-weight: bolder;
+border-radius: 30%;
+padding: 10px 25px;
+}
+ button:hover{
+    background-color: white;
+    color:blue
+ }
+
+ body{
+  padding: 10px;
+  height: 100vh;
+ }
+ 
+ .grid-container{
+  border: 3px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 100px 300px 100px;
+  gap:3px;
+  
+
+  grid-template-areas: 
+  "header header  header"
+  "navi   content sidebar"
+  "footer footer  footer";
+ }
+ .box4{
+  background-color: rgb(232, 172, 172);
+  border: 2px solid red;
+  border-radius: 10px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:x-large;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .header{
+  grid-area: header;
+ }
+ .navi{
+  grid-area: navi;
+  background-color: blue;
+ }
+ .content{
+  grid-area: content;
+  background-color: blueviolet;
+ }
+ .sidebar{
+  grid-area: sidebar;
+  background-color: grey;
+ }
+ .footer{
+  grid-area: footer;
+  background-color: aqua;
+ }
+
+.grid-container2{
+  padding:10px;
+  border: 2px solid rgb(6, 250, 6);
+  display: grid;
+  grid-template-columns: 200px 400px 400px;
+  grid-template-rows: 100px 150px 150px 100px;
+  gap:10px;
+
+  grid-template-areas: 
+  "header2  header2  header2"
+  "sidebar2 content2 content2"
+  "sidebar2 content3 content4"
+  "footer2  footer2 footer2";
+}
+
+.box5{
+  border:3px solid green;
+  background-color: rgb(79, 167, 79);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.header2{
+  grid-area: header2;
+}
+.sidebar2{
+  grid-area: sidebar2;
+}
+.content2{
+  grid-area: content2;
+}
+.footer2{
+  grid-area: footer2;
+}
+
+.grid-container3{
+  
+}
+</style>
+</head>
+<body>
+    <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div></div>
+
+    <div class="contain">
+    <!-- <div id="bb"> 11</div> -->
+    <div class="box" id="bi1">11</div>
+    <div class="box" id="bi2">12</div>
+    <div class="box" id="bi3">13</div>
+    <div class="box" id="bi4">14</div>
+    <div class="box" id="bi5">15</div>
+    <div class="box" id="bi6">16</div>
+    <div class="box" id="bi7">17</div>
+    </div>
+<!-- 
+    <div class="box-container">
+    <div class="box2" id="bibi1">1</div>
+    <div class="box2" id="bibi2">2</div>
+    <div class="box2" id="bibi3">3</div>
+    <div class="box2" id="bibi4">4</div>
+    <div class="box2" id="bibi5">5</div>
+    <div class="box2" id="bibi6">6</div>
+    <div class="box2" id="bibi7">7</div>
+    <div class="box2" id="bibi8">8</div>
+    </div>
+
+    <div class="box-contain">
+      <div class="box3" id="bibib1">header</div>
+      <div class="box3" id="bibib2">main</div>
+      <div class="box3" id="bibib3">aside</div>
+      <div class="box3" id="bibib4">footer</div>
+    </div> -->
+
+    <!-- <div class="grid-container">
+      <div class="box4 header">header</div>
+      <div class="box4 navi">Navigation</div>
+      <div class="box content">Content</div>
+      <div class="box4 sidebar">Sidebar</div>
+      <div class="box4 footer">Footer</div>
+    </div>
+
+    <div class="grid-container2">
+      <div class="box5 header2">Header</div>
+      <div class="box5 sidebar2">Side Bar</div>
+      <div class="box5 content2">Content 1</div>
+      <div class="box5 content3">Content 2</div>
+      <div class="box5 content4">Content 3</div>
+      <div class="box5 footer2">Footer</div>
+    </div>
+
+    <div class="grid-container3">
+      <div class="box6">1</div>
+      <div class="box6">2</div>
+      <div class="box6">3</div>
+      <div class="box6">4</div>
+      <div class="box6">5</div>
+      <div class="box6">6</div>
+    </div> -->
+<!-- <button>Sign Up</button> -->
+</body>
+</html>
+
+
