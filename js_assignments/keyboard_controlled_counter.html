@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyboard Controlled Counter</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#1f1f1f;
+    padding:50px;
+}
+
+h1{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:50px;
+}
+
+.container{
+    width:900px;
+    height:300px;
+    background:#eef3ff;
+    margin:auto;
+    text-align:center;
+    padding-top:40px;
+}
+
+.container h2{
+    margin-bottom:15px;
+}
+
+.container p{
+    margin-bottom:20px;
+}
+
+#count{
+    font-size:60px;
+    color:#2563eb;
+    margin-bottom:30px;
+}
+
+button{
+    padding:12px 25px;
+    background:#ef4444;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#dc2626;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Keyboard Controlled Counter</h1>
+
+<div class="container">
+
+    <h2>Keyboard Controlled Counter Game</h2>
+
+    <p>Press A to increase, D to decrease, S to reset</p>
+
+    <div id="count">0</div>
+
+    <button id="enableBtn">Enable Controls</button>
+
+</div>
+
+<script>
+
+let count = 0;
+let enabled = false;
+
+const display = document.getElementById("count");
+const btn = document.getElementById("enableBtn");
+
+btn.addEventListener("click",function(){
+
+    enabled = true;
+    btn.textContent = "Controls Enabled";
+
+});
+
+document.addEventListener("keydown",function(e){
+
+    if(!enabled)
+        return;
+
+    if(e.key === "a" || e.key === "A"){
+
+        count++;
+
+    }
+
+    else if(e.key === "d" || e.key === "D"){
+
+        count--;
+
+    }
+
+    else if(e.key === "s" || e.key === "S"){
+
+        count = 0;
+
+    }
+
+    display.textContent = count;
+
+});
+
+</script>
+
+</body>
+</html>
