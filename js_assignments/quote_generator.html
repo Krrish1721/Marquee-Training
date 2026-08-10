@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Generator</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef2f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    
+}
+
+.container{
+    width:700px;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+h1{
+    font-size:38px;
+    margin-bottom:25px;
+}
+
+.quote{
+    font-size:24px;
+    color:#333;
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+.author{
+    font-size:20px;
+    color:#555;
+    margin-bottom:30px;
+}
+
+button{
+    padding:12px 24px;
+    background:lightblue;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:17px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d56c5;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Quote Generator</h1>
+
+    <p class="quote" id="quote">
+        "First, solve the problem. Then, write the code."
+    </p>
+
+    <p class="author" id="author">
+        — John Johnson
+    </p>
+
+    <button onclick="newQuote()">New Quote</button>
+</div>
+
+<script>
+
+const quotes = [
+{
+quote:"You can always edit a bad page. You can't edit a blank page.",
+author:"Jodi Picoult "
+},
+{
+quote:"The first draft is just you telling yourself the story.",
+author:"Terry Pratchett"
+},
+{
+quote:"There is no greater agony than bearing an untold story inside you.",
+author:"Maya Angelou"
+},
+{
+quote:"If there's a book that you want to read, but it hasn't been written yet, then you must write it.",
+author:"Tony Morrison"
+},
+{
+quote:"Start writing, no matter what. The water does not flow until the faucet is turned on.",
+author:"Louis L'Amour"
+},
+{
+quote:"The best error message is the one that never shows up.",
+author:"Thomas Fuchs"
+},
+{
+quote:"Start writing, no matter what. The water does not flow until the faucet is turned on.",
+author:"Chris Heilmann"
+},
+{
+quote:"Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+author:"Martin Fowler"
+}
+];
+
+function newQuote(){
+
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+
+    document.getElementById("quote").innerText =
+    `"${quotes[randomIndex].quote}"`;
+
+    document.getElementById("author").innerText =
+    `— ${quotes[randomIndex].author}`;
+}
+
+</script>
+
+</body>
+</html>
