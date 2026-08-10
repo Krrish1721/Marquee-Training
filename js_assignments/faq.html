@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:450px;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.faq{
+    border-bottom:1px solid #ddd;
+    padding:10px 0;
+}
+
+.question{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.answer{
+    max-height:0;
+    overflow:hidden;
+    transition:0.3s;
+    color:#555;
+    margin-top:5px;
+}
+
+.faq.active .answer{
+    max-height:100px;
+}
+
+.icon{
+    font-size:22px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>FAQs</h1>
+
+    <div class="faq">
+        <div class="question">
+            <span>What is HTML?</span>
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            HTML is used to create the structure of web pages.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            <span>What is CSS?</span>
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            CSS is used to style and design web pages.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            <span>What is JavaScript?</span>
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            JavaScript adds interactivity and dynamic behavior to websites.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            <span>Can I learn web development easily?</span>
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            Yes! Start with HTML, then CSS, and finally JavaScript by building small projects.
+        </div>
+    </div>
+
+</div>
+
+<script>
+const faqs = document.querySelectorAll(".faq");
+
+faqs.forEach(faq => {
+    faq.querySelector(".question").addEventListener("click", () => {
+
+        faq.classList.toggle("active");
+
+        const icon = faq.querySelector(".icon");
+        icon.textContent = faq.classList.contains("active") ? "-" : "+";
+    });
+});
+</script>
+
+</body>
+</html>
