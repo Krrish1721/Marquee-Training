@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counter App</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#1e1e1e;
+    padding:50px 90px;
+}
+
+h1{
+    color:white;
+    font-size:52px;
+    margin-bottom:30px;
+}
+
+.container{
+    width:700px;
+    background:white;
+    padding:50px;
+    text-align:center;
+    border-radius:2px;
+}
+
+.container h2{
+    color:#333;
+    margin-bottom:20px;
+}
+
+#count{
+    font-size:70px;
+    color:#2563eb;
+    margin-bottom:30px;
+}
+
+button{
+    border:none;
+    padding:10px 18px;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    margin:5px;
+}
+
+#start{
+    background:#22c55e;
+}
+
+#stop{
+    background:#ef4444;
+}
+
+#resume{
+    background:#f59e0b;
+}
+
+#reset{
+    background:#6b7280;
+}
+
+button:hover{
+    opacity:0.9;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Counter App</h1>
+
+<div class="container">
+
+    <h2>Counter App</h2>
+
+    <div id="count">0</div>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="resume">Resume</button>
+    <button id="reset">Reset</button>
+
+</div>
+
+<script>
+
+let count = 0;
+let interval = null;
+
+const countDisplay = document.getElementById("count");
+const startBtn = document.getElementById("start");
+const stopBtn = document.getElementById("stop");
+const resumeBtn = document.getElementById("resume");
+const resetBtn = document.getElementById("reset");
+
+function startCounter(){
+
+    interval = setInterval(function(){
+
+        count++;
+        countDisplay.textContent = count;
+
+    },1000);
+
+}
+
+startBtn.addEventListener("click",function(){
+
+    if(interval === null){
+        startCounter();
+    }
+
+});
+
+stopBtn.addEventListener("click",function(){
+
+    clearInterval(interval);
+    interval = null;
+
+});
+
+resumeBtn.addEventListener("click",function(){
+
+    if(interval === null){
+        startCounter();
+    }
+
+});
+
+resetBtn.addEventListener("click",function(){
+
+    clearInterval(interval);
+    interval = null;
+    count = 0;
+    countDisplay.textContent = count;
+
+});
+
+</script>
+
+</body>
+</html>
+
+//razorpay, paypal, servicenow, microsoft
