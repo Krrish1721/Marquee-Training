@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List Builder</title>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:50px auto;
+    background:#fff;
+    padding:35px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1{
+    margin-bottom:25px;
+    font-size:42px;
+
+}
+
+.controls{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+input{
+    width:260px;
+    padding:12px;
+    font-size:16px;
+    border:1px solid #bbb;
+    border-radius:5px;
+}
+
+button{
+    padding:12px 18px;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+    font-size:15px;
+    transition:.3s;
+}
+
+#addBtn{
+    background:#2196f3;
+    color:white;
+}
+
+#duplicateBtn{
+    background:#555;
+    color:white;
+}
+
+#topBtn{
+    background:#4caf50;
+    color:white;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+ul{
+    list-style:disc;
+    padding-left:30px;
+}
+
+li{
+    margin:15px 0;
+    font-size:22px;
+}
+
+.task{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+
+.delete{
+    background:red;
+    color:white;
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:3px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.delete:hover{
+    background:darkred;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>To-Do List Builder</h1>
+
+<div class="controls">
+
+<input
+type="text"
+id="taskInput"
+placeholder="Enter Task">
+
+<button id="addBtn">Add</button>
+
+<button id="duplicateBtn">
+Duplicate Last
+</button>
+
+<button id="topBtn">
+Insert at Top
+</button>
+
+</div>
+
+<ul id="taskList">
+
+<li>
+<span class="task">
+Priority Task
+<button class="delete">X</button>
+</span>
+</li>
+
+</ul>
+
+</div>
+
+<script>
+
+const input=document.getElementById("taskInput");
+const list=document.getElementById("taskList");
+
+function createTask(text){
+
+    if(text.trim()==="") return;
+
+    const li=document.createElement("li");
+
+    const span=document.createElement("span");
+    span.className="task";
+
+    span.append(text);
+
+    const del=document.createElement("button");
+    del.className="delete";
+    del.innerText="X";
+
+    del.onclick=function(){
+        li.remove();
+    };
+
+    span.appendChild(del);
+
+    li.appendChild(span);
+
+    return li;
+}
+
+document.getElementById("addBtn").onclick=function(){
+
+    const task=createTask(input.value);
+
+    if(task){
+        list.appendChild(task);
+        input.value="";
+        input.focus();
+    }
+
+};
+
+document.getElementById("duplicateBtn").onclick=function(){
+
+    const items=list.querySelectorAll("li");
+
+    if(items.length===0) return;
+
+    const last=items[items.length-1];
+
+    const text=last.firstChild.textContent.trim();
+
+    const task=createTask(text);
+
+    list.appendChild(task);
+
+};
+
+document.getElementById("topBtn").onclick=function(){
+
+    const task=createTask(input.value);
+
+    if(task){
+        list.insertBefore(task,list.firstChild);
+        input.value="";
+        input.focus();
+    }
+
+};
+
+input.addEventListener("keypress",function(e){
+
+    if(e.key==="Enter"){
+        document.getElementById("addBtn").click();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
