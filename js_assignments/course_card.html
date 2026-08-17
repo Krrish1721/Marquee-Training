@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Courses</title>
+    <style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #0d0d0d;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .assignment-container {
+        width: 100%;
+        max-width: 1000px;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .courses-header {
+        background-color: #1a1a1a;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .courses-header h1 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .courses-header p {
+        color: #a0a0a0;
+        font-size: 0.9rem;
+    }
+
+    .courses-main {
+        background-color: #f8f9fa;
+        padding: 40px 20px;
+    }
+
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .course-card {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .course-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .course-title {
+        color: #111111;
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .course-meta {
+        color: #757575;
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    .course-desc {
+        color: #424242;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+        flex-grow: 1; /* Pushes duration and price to the bottom */
+    }
+
+    .course-duration {
+        color: #757575;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .course-price {
+        color: #0066cc;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="assignment-container">
+
+    <header class="courses-header">
+        <h1>Available Courses</h1>
+        <p>Click on any course card to see more details.</p>
+    </header>
+
+    <main class="courses-main">
+        <div class="courses-grid">
+
+        <div class="course-card">
+            <h2 class="course-title">HTML Basics</h2>
+            <div class="course-meta">Web Development &bull; Beginner</div>
+            <p class="course-desc">Learn the structure of web pages using HTML tags and elements.</p>
+            <div class="course-duration">Duration: 4 weeks</div>
+            <div class="course-price">&#8377;999</div>
+        </div>
+
+        <div class="course-card">
+            <h2 class="course-title">CSS Fundamentals</h2>
+            <div class="course-meta">Web Development &bull; Beginner</div>
+            <p class="course-desc">Style your pages with colors, layouts, fonts, and responsive design.</p>
+            <div class="course-duration">Duration: 5 weeks</div>
+            <div class="course-price">&#8377;1299</div>
+        </div>
+
+        <div class="course-card">
+            <h2 class="course-title">JavaScript DOM & Events</h2>
+            <div class="course-meta">Programming &bull; Intermediate</div>
+            <p class="course-desc">Make your pages dynamic by interacting with the DOM and handling user events.</p>
+            <div class="course-duration">Duration: 6 weeks</div>
+            <div class="course-price">&#8377;1499</div>
+        </div>
+    </div>
+</main>
+</div>
+
+</body>
+</html>
