@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Text Manipulator</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#e0f2fe,#f8fafc);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:700px;
+    background:#fff;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:30px;
+    font-size:36px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:2px solid #cbd5e1;
+    border-radius:10px;
+    outline:none;
+    margin-bottom:25px;
+}
+
+input:focus{
+    border-color:#2563eb;
+}
+
+.output{
+    min-height:70px;
+    background:#f8fafc;
+    border-left:5px solid #2563eb;
+    border-radius:8px;
+    padding:18px;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+button{
+    padding:14px;
+    font-size:17px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.highlight{
+    background:#fff3b0 !important;
+    color:#000;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Interactive Text Manipulator</h1>
+
+<input
+type="text"
+id="textInput"
+placeholder="Type something here...">
+
+<div class="output" id="output">
+Your text will appear here.
+</div>
+
+<div class="buttons">
+
+<button id="showBtn">
+Show Text
+</button>
+
+<button id="clearBtn">
+Clear
+</button>
+
+<button id="upperBtn">
+Uppercase
+</button>
+
+<button id="highlightBtn">
+Toggle Highlight
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const input = document.querySelector("#textInput");
+const output = document.querySelector("#output");
+
+const showBtn = document.querySelector("#showBtn");
+const clearBtn = document.querySelector("#clearBtn");
+const upperBtn = document.querySelector("#upperBtn");
+const highlightBtn = document.querySelector("#highlightBtn");
+
+// Show Text
+showBtn.addEventListener("click",function(){
+
+    if(input.value.trim()===""){
+        output.textContent="Please enter some text.";
+    }
+    else{
+        output.textContent=input.value;
+    }
+
+});
+
+// Clear
+clearBtn.addEventListener("click",function(){
+
+    input.value="";
+    output.textContent="Your text will appear here.";
+    output.classList.remove("highlight");
+
+});
+
+// Uppercase
+upperBtn.addEventListener("click",function(){
+
+    if(input.value.trim()===""){
+        return;
+    }
+
+    input.value=input.value.toUpperCase();
+    output.textContent=input.value;
+
+});
+
+// Toggle Highlight
+highlightBtn.addEventListener("click",function(){
+
+    output.classList.toggle("highlight");
+
+});
+
+</script>
+
+</body>
+</html>
