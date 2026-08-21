@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .demo-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #000;
+        }
+
+        #interactive-box {
+            width: 250px;
+            height: 150px;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        #interactive-box.hovered {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+
+        #interactive-box.clicked {
+            border-color: #22c55e;
+            background-color: #dcfce7;
+        }
+
+        .status-container {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .status-container p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="demo-card">
+        <h2>Mouse Events Demo</h2>
+        
+        <div id="interactive-box">
+            Move, click, or double-click me!
+        </div>
+
+        <div class="status-container">
+            <p>Status: <span id="status-text">No event yet</span></p>
+            <p>Coordinates: <span id="coords-text">-</span></p>
+        </div>
+    </div>
+
+    <script>
+        const box = document.getElementById('interactive-box');
+        const statusText = document.getElementById('status-text');
+        const coordsText = document.getElementById('coords-text');
+
+        function updateCoordinates(e) {
+            coordsText.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
+        }
+
+        box.addEventListener('mouseover', (e) => {
+            if (!box.classList.contains('clicked')) {
+                box.className = 'hovered';
+                statusText.textContent = "Mouse is over the box.";
+            }
+            updateCoordinates(e);
+        });
+
+        box.addEventListener('mousemove', (e) => {
+            updateCoordinates(e);
+        });
+
+        box.addEventListener('mousedown', (e) => {
+            box.className = 'clicked'; 
+            statusText.textContent = "Mouse button pressed.";
+            updateCoordinates(e);
+        });
+
+        box.addEventListener('click', (e) => {
+            box.className = 'clicked';
+            statusText.textContent = "Click event fired!";
+            updateCoordinates(e);
+        });
+
+        box.addEventListener('dblclick', (e) => {
+            box.className = ''; 
+            statusText.textContent = "No event yet";
+            coordsText.textContent = "-";
+        });
+
+        box.addEventListener('mouseleave', () => {
+            if (!box.classList.contains('clicked')) {
+                box.className = '';
+                statusText.textContent = "No event yet";
+                coordsText.textContent = "-";
+            }
+        });
+    </script>
+</body>
+</html>
